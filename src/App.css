@@ -67,4 +67,93 @@
     justify-content: space-around;
     margin-top: 20px;
   }
+
+  .MainCartOuter{
+    display: flex;
+
+  }
+  .MainCart{
+   width: 600px;
+  }
+  
+  .cart-card-img{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 30px;
+
+  }
+
+  .cart-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height:auto;
+    padding-left: 0px;
+    padding-top: 20px;
+    
+  }
+
+
+  .cart-card-details{
+    z-index: 1;
+    margin-left: 150px;
+
+  }
+  
+  .cart-card-title{
+     color: #000;
+     font-size: 20px;
+  }
+  
+  .cart-card-quantity{
+    color: #000;
+  }
+  .cart-card-price{
+    color: #000;
+  }
+  .cart-checkout {
+    background-color: #f8f9fa; /* Light grey background */
+    border: 1px solid #dee2e6; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    max-width: 200px; /* Maximum width of the box */
+    margin: 20px auto; /* Center the box horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    font-family: Arial, sans-serif; /* Font styling */
+    text-align: center; /* Center align text */
+    margin-top: 10px;
+    justify-content: center;
+    height: 240px;
+  }
+  
+  .cart-checkout p{
+    color: black;
+  }
+  
+  .cart-checkout button{
+    background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s;
+  }
+  .cart-checkout button:hover {
+    background-color: green ; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+  }
   
