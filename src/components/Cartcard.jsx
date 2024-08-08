@@ -4,10 +4,7 @@ import React from "react";
 const Cartcard = (props) => {
   const { item } = props;
   
-
-
- 
-  
+    
   return (
     <>
     <div className="cart-card">

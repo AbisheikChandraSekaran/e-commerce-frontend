@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import { Provider } from "react-redux";
@@ -6,8 +6,12 @@ import store from "./redux/store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeLayout from "./components/HomeLayout";
 import Cart from "./components/Cart";
+import axios from "axios";
 
 const App = () => {
+
+  
+
   return (
     <Provider store={store}>
       <BrowserRouter>
