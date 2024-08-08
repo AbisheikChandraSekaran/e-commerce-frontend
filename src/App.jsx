@@ -6,7 +6,7 @@ import store from "./redux/store";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeLayout from "./components/HomeLayout";
 import Cart from "./components/Cart";
-import axios from "axios";
+import Signup from "./components/Register";
 
 const App = () => {
 
@@ -16,7 +16,8 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomeLayout />}>
+          {/* <Route path="/" element={<HomeLayout />}> */}
+          <Route path="/" element={<Signup />}>
             <Route path="/" element={<Products />} />
             <Route path="/cart" element={<Cart/>}/>
           </Route>
