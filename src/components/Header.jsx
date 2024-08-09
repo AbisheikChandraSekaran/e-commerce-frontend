@@ -41,6 +41,7 @@ const Header = () => {
       <span>Logo</span>
       <nav className="nav-links">
         <Link to='/'>Products</Link>
+        <Link to="/login">Login</Link>
         <span>About</span>
         <Link to='/cart'>Cart: {cartItems.length}</Link>
         

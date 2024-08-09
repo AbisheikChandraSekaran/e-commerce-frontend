@@ -7,6 +7,7 @@ const HomeLayout = () => {
     <>
     <Header/>
     <Outlet/>
+  
     </>
   );
 

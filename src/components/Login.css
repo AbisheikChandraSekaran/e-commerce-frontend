@@ -7,6 +7,9 @@
     background-color: #f9f9f9;
   }
   
+  .login-container h2{
+    color: black;
+  }
   .form-group {
     margin-bottom: 15px;
   }
