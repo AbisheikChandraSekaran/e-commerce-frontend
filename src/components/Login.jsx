@@ -3,9 +3,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import "./Login.css"
+import { useDispatch } from 'react-redux';
+import { setToken } from '../redux/userSlice';
 
 
 const Login = () => {
+
+  const dispatch = useDispatch();
   const [email, setEmail] =useState("");
   const [password, setPassword] =useState("");
 
@@ -16,23 +20,13 @@ const Login = () => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  // const [formData, setFormData] = useState({
-  //   email: '',
-  //   password: '',
-  // });
+  
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false); // Track success state
   const navigate = useNavigate(); // Initialize the navigate function
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
@@ -46,11 +40,15 @@ const Login = () => {
       setSuccess(true); // Set success state to true on successful login
       setError('');
       toast.success(res.data.message)
-      // console.log(res)
+      console.log(res)
       localStorage.setItem("token",res.data.token);
+      console.log(res.data.token)
+      dispatch(setToken(res.data.token))
+      console.log('dispatch')
       navigate('/'); 
 
     } catch (err) {
+      console.log(err)
       setError(err.response?.data?.error || 'Invalid email or password');
       setSuccess(false); // Ensure success is false if an error occurs
       toast.error(err.response?.data?.error)

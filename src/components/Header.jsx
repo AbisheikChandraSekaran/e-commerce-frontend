@@ -6,17 +6,17 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { setCart } from '../redux/cartSlice';
 
-const Header = () => {
 
+const Header = () => {
   const cartItems = useSelector((state) => state.cart.items);
   console.log('===> cart', cartItems)
+  const token = useSelector((state)=>state.user.token)
   
-  // useEffect(()=>{
-  //   getCartItems();
-  // },[]);
-  useEffect(() => {
-    getCartItems();
-},[]);
+  useEffect(()=>{
+    if(token){
+      getCartItems();
+  }},[token])
+
 
   const dispatch = useDispatch();
 
@@ -24,14 +24,11 @@ const Header = () => {
   const getCartItems = async () => {
     const res = await axios.get("http://localhost:3000/getCartItems", {
         headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmI0ZTkzNjJmNGVhNGQ3OGU3ZWNmOWEiLCJpYXQiOjE3MjMxMzYwMjYsImV4cCI6MTcyMzIyMjQyNn0.iwQVcPkWlPmyHi_LPs5wGWYu5HNkQ96zqZ9YbANh2Bo"
+            Authorization: `Beaker ${token}`
         }
     });
     console.log(res.data);
     dispatch(setCart(res.data.products))
-
-
-
   
 }
 
@@ -41,7 +38,10 @@ const Header = () => {
       <span>Logo</span>
       <nav className="nav-links">
         <Link to='/'>Products</Link>
-        <Link to="/login">Login</Link>
+        {token?
+        // <Link to="/logout">Logout</Link>}
+        <span>Logout</span>:
+        <Link to="/login">Login</Link>}
         <span>About</span>
         <Link to='/cart'>Cart: {cartItems.length}</Link>
         

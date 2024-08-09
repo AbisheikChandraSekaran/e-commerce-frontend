@@ -2,23 +2,28 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeLayout from "./components/HomeLayout";
 import Cart from "./components/Cart";
 import Signup from "./components/Register";
 import Login from "./components/Login"
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from "react-redux";
+import { setToken } from "./redux/userSlice";
 
 
 const App = () => {
-
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    const token = localStorage.getItem("token");
+    dispatch(setToken(token))},[])
   
 
   return (
     
-    <Provider store={store}>
+   
       <BrowserRouter>
       <ToastContainer/>
         <Routes>
@@ -30,7 +35,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider>
+   
   
   );
 };

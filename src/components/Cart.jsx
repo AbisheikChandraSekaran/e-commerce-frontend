@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import CartCheckout from './CartCheckout';
 const Cart = () => {
   const cartItems = useSelector((state)=>state.cart.items);
+  console.log("==>cartItem",cartItems)
   return (
     <>
     <div className='MainCartOuter'>
